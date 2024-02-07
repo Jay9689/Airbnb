@@ -1,5 +1,12 @@
 body{
     font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+.container{
+    flex:1 !important;
 }
 
 .navbar{
@@ -68,9 +75,10 @@ body{
     font-weight: 400 !important;
 }
 
-.listing-link{
+
+.listing-link {
     text-decoration: none;
-};
+}
 
 /* card effects */
 
@@ -82,5 +90,12 @@ opacity: 0;
     opacity: 0.2;
     background-color: white;
 }
+
+/* New Route */
+.add-btn{
+background-color: #fe424d !important;
+border: none !important;
+}
+
 
 
