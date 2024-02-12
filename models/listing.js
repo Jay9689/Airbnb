@@ -11,17 +11,13 @@ const listingSchema = new Schema({
     },
 
     image: {
-        url: {
-            type: String,
-            default: "https://unsplash.com/photos/a-person-swimming-over-a-coral-reef-in-the-ocean-tSwRu3Jh0EM",
-            set: (v) => v === "" ? "https://unsplash.com/photos/a-person-swimming-over-a-coral-reef-in-the-ocean-tSwRu3Jh0EM" : v,
-            required: true,
-        },
-        filename: {
-            type: String,
-            required: true,
-        }
-
+        type: String,
+        default:
+            "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        set: (v) =>
+            v === ""
+                ? "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+                : v,
     },
     price: {
         type: Number
