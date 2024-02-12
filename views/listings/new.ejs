@@ -1,80 +1,79 @@
 <% layout("/layouts/boilerplate.ejs")-%>
-<body>
-  <div class="row mt-3">
-    <div class="col-8 offset-2">
-      <h3><b>Create a New listing</b></h3>
-      <form method="post" action="/listing" novalidate class="needs-validation">
-        <div class="mb-3">
-          <label for="title" class="form-label"> Title </label>
+
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3><b>Create a New listing</b></h3>
+    <form method="post" action="/listing" novalidate class="needs-validation">
+      <div class="mb-3">
+        <label for="title" class="form-label"> Title </label>
+        <input
+          name="listing[title]"
+          type="text"
+          placeholder="Add a catchy title"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label"> description </label>
+        <textarea
+          name="listing[description]"
+          type="text"
+          class="form-control"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please Enter Short Description</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label"> image/Url </label>
+        <input
+          name="listing[image]"
+          type="text"
+          placeholder="enter image url/link"
+          class="form-control"
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label"> price </label>
           <input
-            name="listing[title]"
-            type="text"
-            placeholder="Add a catchy title"
+            name="listing[price]"
+            placeholder="1200"
             class="form-control"
             required
           />
-          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Plese Enter Valid Price</div>
         </div>
 
-        <div class="mb-3">
-          <label for="description" class="form-label"> description </label>
-          <textarea
-            name="listing[description]"
-            type="text"
-            class="form-control"
-            required
-          ></textarea>
-          <div class="invalid-feedback">Please Enter Short Description</div>
-        </div>
-
-        <div class="mb-3">
-          <label for="image" class="form-label"> image/Url </label>
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label"> country </label>
           <input
-            name="listing[image]"
+            name="listing[country]"
             type="text"
-            placeholder="enter image url/link"
-            class="form-control"
-          />
-        </div>
-        <div class="row">
-          <div class="mb-3 col-md-4">
-            <label for="price" class="form-label"> price </label>
-            <input
-              name="listing[price]"
-              placeholder="1200"
-              class="form-control"
-              required
-            />
-            <div class="invalid-feedback">Plese Enter Valid Price</div>
-          </div>
-
-          <div class="mb-3 col-md-8">
-            <label for="country" class="form-label"> country </label>
-            <input
-              name="listing[country]"
-              type="text"
-              placeholder="India"
-              class="form-control"
-              required
-            />
-            <div class="invalid-feedback">Country Name Should be Valid</div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="location" class="form-label"> location </label>
-          <input
-            name="listing[location]"
-            type="text"
-            placeholder="Jaipur Rajastan"
+            placeholder="India"
             class="form-control"
             required
           />
-          <div class="invalid-feedback">Location Should be Valid</div>
+          <div class="invalid-feedback">Country Name Should be Valid</div>
         </div>
-        <button class="btn btn-dark add-btn mt-3">Add</button>
-        <br /><br />
-      </form>
-    </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label"> location </label>
+        <input
+          name="listing[location]"
+          type="text"
+          placeholder="Jaipur Rajastan"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Location Should be Valid</div>
+      </div>
+      <button class="btn btn-dark add-btn mt-3">Add</button>
+      <br /><br />
+    </form>
   </div>
-</body>
+</div>
