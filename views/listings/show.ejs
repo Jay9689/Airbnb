@@ -14,7 +14,7 @@
       <p class="card-text">
         <br />
         <%= listing.description %> <br />
-        &#8377; <%= listing.price.toLocaleString("en-In") %> <br />
+        &#8377; <%= listing.price.toLocaleString("en-IN") %> <br />
         <%= listing.location %> <br />
         <%= listing.country %> <br />
       </p>
@@ -23,22 +23,22 @@
 
   <div class="btns">
     <a
-      href="/listing/<%= listing._id %>/edit"
+      href="/listings/<%= listing._id %>/edit"
       class="btn btn-dark col-1 offset-3 edit-btn"
     >
       Edit</a
     >
 
-    <form method="post" action="/listing/<%= listing._id %>?_method=DELETE">
+    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
       <button class="btn btn-dark offset-5">Delete</button>
     </form>
   </div>
 
   <div class="col-8 offset-3 mb-3">
     <hr />
-    <h4>leave a Review</h4>
+    <h4>Leave a Review</h4>
     <form
-      action="/listing/<%= listing._id %>/reviews"
+      action="/listings/<%= listing._id %>/reviews"
       method="post"
       novalidate
       class="needs-validation"
@@ -80,7 +80,7 @@
           <form
             class="mb-3"
             method="post"
-            action="/listing/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+            action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
           >
             <button class="btn btn-sm btn-dark">Delete</button>
           </form>
