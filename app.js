@@ -62,21 +62,15 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+// Locals that are passed in ejs
 app.use((req, res, next) => {
     res.locals.success = req.flash("success")
     res.locals.error = req.flash("error")
+    res.locals.currUser = req.user;
     next();
 })
 
-// app.use('/demouser', async (req, res) => {
-//     let fakeUser = new User({
-//         email: "jayp916@gmail.com",
-//         username: "jay"
-//     });
-
-//     let registerUser = await User.register(fakeUser, "jaydada");
-//     res.send(registerUser)
-// })
 
 // routes
 app.use("/listings", listingRouter);

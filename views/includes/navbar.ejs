@@ -13,9 +13,15 @@
       <div class="navbar-nav">
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/listings">All Listings</a>
-        <!-- Updated path -->
         <a class="nav-link" href="/listings/new">Add new Listings</a>
-        <!-- Updated path -->
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if (!currUser) { %>
+        <a class="nav-link" href="/signup">Signup</a>
+        <a class="nav-link" href="/login">Login</a>
+        <% } %> <% if (currUser) { %>
+        <a class="nav-link" href="/logout">logout</a>
+        <% } %>
       </div>
     </div>
   </div>
