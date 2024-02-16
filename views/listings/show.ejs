@@ -40,6 +40,7 @@
 
   <div class="col-8 offset-3 mb-3">
     <hr />
+    <% if (currUser) {%>
     <h4>Leave a Review</h4>
     <form
       action="/listings/<%= listing._id %>/reviews"
@@ -73,12 +74,13 @@
       <button class="btn btn-outline-dark">Submit</button>
     </form>
     <hr />
+    <% }%>
     <h4><b>All Reviews</b></h4>
     <div class="row">
       <% for (let review of listing.reviews){ %>
       <div class="card col-5 ms-3 mb-3">
         <div class="card-body">
-          <h5 class="card-title">Jon snow</h5>
+          <h5 class="card-title">@<%= review.author.username %></h5>
           <p class="card-text"><%= review.comment %></p>
           <p class="card-text"><b><%= review.rating %> Star</b></p>
           <form
