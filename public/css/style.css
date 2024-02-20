@@ -117,5 +117,10 @@ border: none !important;
     padding-right: 0;
 }
 
+/* Map */
 
+#map {
+    height: 400px;
+    width: 100vh;
+ }
 
