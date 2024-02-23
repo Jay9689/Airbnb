@@ -53,9 +53,9 @@ const sessionOptions = {
 }
 
 // root route
-app.get('/', (req, res) => {
-    res.send("Welcome to the server");
-});
+// app.get('/', (req, res) => {
+//     res.send("Welcome to the server");
+// });
 
 // Express sessions and Flash
 app.use(session(sessionOptions));

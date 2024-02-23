@@ -121,6 +121,21 @@ border: none !important;
 
 #map {
     height: 400px;
-    width: 100vh;
+
+ }
+
+ @media (max-width: 1100px){
+    .nav-link{
+        color: #222222 !important;
+        background-color: white !important;
+       } 
+    .d-flex{
+        background-color: white !important;
+       } 
+
+       #map{
+       width: 280px !important;
+       height: 220px !important;
+       }
  }
 
