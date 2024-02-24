@@ -18,6 +18,9 @@ const User = require('./models/user.js')
 const listingRouter = require('./routes/listing.js'); // Renamed
 const reviewRouter = require('./routes/review.js');
 const userRouter = require('./routes/user.js');
+const Listing = require("./models/listing.js");
+// for search route
+const { isLoggedIn, isOwner, validateListing } = require('./middleware.js');
 
 
 const Mongo_url = "mongodb://127.0.0.1:27017/wonderlust";
@@ -52,10 +55,7 @@ const sessionOptions = {
     }
 }
 
-// root route
-// app.get('/', (req, res) => {
-//     res.send("Welcome to the server");
-// });
+
 
 // Express sessions and Flash
 app.use(session(sessionOptions));
@@ -80,6 +80,23 @@ app.use((req, res, next) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
+
+// root route
+app.get('/search', async (req, res) => {
+
+    console.log(req.query.inputval)
+    let data = await Listing.find({
+        "$or": [
+            {
+                country: { $regex: req.query.inputval },
+                // title: { $regex: req.query.inputval },
+                // description: { $regex: req.query.inputval }
+            }
+        ]
+    })
+    console.log(data)
+    res.render('listings/search', { data });
+});
 
 // Error handler Middleware
 app.all('*', (req, res, next) => {

@@ -45,7 +45,8 @@ const listingSchema = new Schema({
             type: [Number],
             required: true
         }
-    }
+    },
+
 });
 // Middleware to delete the Associated review
 listingSchema.post("findOneAndDelete", async (listing) => {

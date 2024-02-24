@@ -88,3 +88,5 @@ module.exports.destroyListing = async (req, res, next) => {
     res.redirect('/listings'); // Corrected path
     console.log(deletedListing);
 }
+// search function
+
