@@ -1,4 +1,6 @@
 <% layout('/layouts/boilerplate.ejs') -%>
+  <br>
+  <br>
         <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
             <% for(let listing of data) { %>
                 <a href="/listings/<%= listing._id %>" class="listing-link "> <!-- Corrected path -->

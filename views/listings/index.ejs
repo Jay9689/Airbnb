@@ -21,7 +21,10 @@
     .filter p {
         font-size: 0.8rem;
     }
-     
+    .filter a {
+        text-decoration: none;
+        color: inherit;
+    }
     .tax-info{
         display: none;
     }
@@ -64,42 +67,40 @@
 <div class="container">
 <div id="filters">
     <div class="filter">
-       <a href="/search/United States"> <div class="filter-item"><i class="fa-solid fa-fire"></i></div>
+       <a href="/search/trending"> <div class="filter-item"><i class="fa-solid fa-fire"></i></div>
         <p>Trending</p>
         </a>
     </div>
 
     <div class="filter">
-        <div class="filter-item"><i class="fa-solid fa-bed"></i></div>
-        <p>Rooms</p>
-    </div>
-    <div class="filter">
-        <div class="filter-item"><i class="fa-solid fa-mountain-city"></i></div>
+        <a href="/search/city"><div class="filter-item"><i class="fa-solid fa-mountain-city"></i></div>
         <p>Iconic cities</p>
+    </a>
     </div>
     <div class="filter">
-        <div class="filter-item"><i class="fa-solid fa-mountain"></i></div>
+        <a href="/search/mountain"><div class="filter-item"><i class="fa-solid fa-mountain"></i></div>
         <p>mountains</p>
+    </a>
     </div>
     <div class="filter">
-        <div class="filter-item"><i class="fa-solid fa-person-swimming"></i></div>
+        <a href="/search/pool"> <div class="filter-item"><i class="fa-solid fa-person-swimming"></i></div>
         <p>Amazing Pools</p>
+    </a>
     </div>
     <div class="filter">
-        <div class="filter-item"><i class="fa-solid fa-campground"></i></div>
-        <p>Camping </p>
-    </div>
-    <div class="filter">
-        <div class="filter-item"><i class="fa-regular fa-snowflake"></i></div>
-        <p>Arctic</p>
-    </div>
-    <div class="filter">
-        <div class="filter-item"><i class="fa-solid fa-igloo"></i></div>
-        <p>Dome</p>
-    </div>
-    <div class="filter">
-        <div class="filter-item"><i class="fa-solid fa-ship"></i></div>
+        <a href="/search/beach"><div class="filter-item"><i class="fa-solid fa-ship"></i></div>
         <p>Boat</p>
+    </a>
+    </div>
+    <div class="filter">
+        <a href="/search/low"><div class="filter-item"><i class="fa-solid fa-arrow-trend-down"></i></div>
+        <p>Low price</p>
+    </a>
+    </div>
+    <div class="filter">
+        <a href="/search/High"><div class="filter-item"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        <p>High price</p>
+    </a>
     </div>
     <div class="filter tax-toggle"> 
         <div class="form-check-reverse form-switch filter-item">

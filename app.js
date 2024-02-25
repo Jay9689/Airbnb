@@ -81,22 +81,71 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-// root route
+// search route
 app.get('/search', async (req, res) => {
+    // Convert inputval to lower case to make the search case-insensitive
+    const inputVal = req.query.inputval.toLowerCase();
+    console.log(inputVal);
 
-    console.log(req.query.inputval)
     let data = await Listing.find({
         "$or": [
             {
-                country: { $regex: req.query.inputval },
-                // title: { $regex: req.query.inputval },
-                // description: { $regex: req.query.inputval }
+                // Convert the 'country' field to lower case and then match with the lower case input
+                country: { $regex: new RegExp(inputVal, 'i') },
+            },
+            {
+                // Convert the 'title' field to lower case and then match with the lower case input
+                title: { $regex: new RegExp(inputVal, 'i') },
+            },
+            {
+                // Convert the 'description' field to lower case and then match with the lower case input
+                description: { $regex: new RegExp(inputVal, 'i') },
+            },
+            {
+                location: { $regex: new RegExp(inputVal, 'i') },
             }
         ]
-    })
-    console.log(data)
+    });
+
+    console.log(data);
     res.render('listings/search', { data });
 });
+
+app.get('/search/:key', async (req, res) => {
+    const key = req.params.key.toLowerCase();
+
+    // Check if the key is 'low' or 'high'
+    if (key === 'low' || key === 'high') {
+        // Customize the query based on whether it's 'low' or 'high'
+        let sortCriteria = {};
+        if (key === 'low') {
+            // Sort by price ascending for 'low' key
+            sortCriteria = { price: 1 };
+        } else {
+            // Sort by price descending for 'high' key
+            sortCriteria = { price: -1 };
+        }
+
+        let data = await Listing.find().sort(sortCriteria);
+        console.log(data);
+        return res.render('listings/search', { data });
+    }
+
+    // If the key is not 'low' or 'high', perform the regular search
+    let data = await Listing.find({
+        "$or": [
+            { country: { $regex: new RegExp(key, 'i') } },
+            { title: { $regex: new RegExp(key, 'i') } },
+            { description: { $regex: new RegExp(key, 'i') } },
+            { location: { $regex: new RegExp(key, 'i') } }
+        ]
+    });
+
+    console.log(data);
+    res.render('listings/search', { data });
+});
+
+
 
 // Error handler Middleware
 app.all('*', (req, res, next) => {
